@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "ChatUnified",
+  "name": "ChatUnified",
+  "author": "Lazycoder744",
+  "version": "1.0.0",
+  "gameVersion": "1.40.8",
+  "description": "Make ChatPlex give you YouTube chat!",
+  "dependsOn": {
+    "BSIPA": "^4.3.0",
+    "ChatPlexSDK_BS": "^6.4.2"
+  }
+}
