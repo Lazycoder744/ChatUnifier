@@ -39,11 +39,10 @@ You use your own API key and secret from your Google Cloud Console, give the JSO
    - **User support email**: your email
    - **Developer contact email**: your email
 4. Click **Save and Continue** through the remaining steps until done
-5. In the left sidebar, go to **OAuth consent screen** → **Test users**
+5. In the left sidebar, go to **OAuth consent screen** → **Audience** → **Test users**
 6. Click **+ Add Users**
 7. Enter the Google account email you stream with
 8. Click **Save**
-9. Click **Publish App** and confirm — this prevents your token from expiring every 7 days
 ---
 ## Step 5: Create OAuth Credentials
 1. Go to **APIs & Services** → **Credentials**
@@ -58,6 +57,7 @@ You use your own API key and secret from your Google Cloud Console, give the JSO
 ## Step 6: Download the JSON
 1. You will see a popup — click **Download JSON**
 2. Save the file somewhere you can find it
+3. If you are unable to download it from this prompt, Go to **Clients**, and under **Client Secrets** there should be **Client Secret**. Click the download button next to it.
 ---
 ## Step 7: Connect in ChatUnifier
 1. Launch Beat Saber — your browser will open the ChatUnifier dashboard automatically
