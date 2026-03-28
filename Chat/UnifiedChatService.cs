@@ -21,7 +21,7 @@ namespace ChatUnifier.Chat
         private readonly List<(IChatService, IChatChannel)> _channels =
             new List<(IChatService, IChatChannel)>();
 
-        // Events required by the IChatService
+        // Events required by the IChatService!!!
         public event Action<IChatService, IChatMessage>  OnTextMessageReceived;
         public event Action<IChatService>                OnLogin;
         public event Action<IChatService, IChatChannel>  OnJoinChannel;

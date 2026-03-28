@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "ChatUnified",
-  "name": "ChatUnified",
+  "id": "ChatUnifier",
+  "name": "ChatUnifier",
   "author": "Lazycoder744",
   "version": "1.0.0",
   "gameVersion": "1.40.8",

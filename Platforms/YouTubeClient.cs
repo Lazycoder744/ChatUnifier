@@ -168,11 +168,16 @@ namespace ChatUnifier.Platforms
 
                 var msgId = item["id"]?.Value<string>() ?? Guid.NewGuid().ToString();
                 var msgText = snippet["displayMessage"]?.Value<string>() ?? "";
-                var userId = author?["channelId"]?.Value<string>() ?? Guid.NewGuid().ToString();
-                var displayName = author?["displayName"]?.Value<string>() ?? "Unknown";
+                var userId = author?["channelId"]?.Value<string>()
+                          ?? snippet?["authorChannelId"]?.Value<string>()
+                          ?? Guid.NewGuid().ToString();
+                var displayName = author?["displayName"]?.Value<string>();
+                if (string.IsNullOrWhiteSpace(displayName))
+                    displayName = author?["displayName"]?.ToString();
+                if (string.IsNullOrWhiteSpace(displayName))
+                    displayName = $"YouTubeUser-{userId.Substring(0, Math.Min(8, userId.Length))}";
                 var isMod = author?["isChatModerator"]?.Value<bool>() ?? false;
                 var isOwner = author?["isChatOwner"]?.Value<bool>() ?? false;
-
                 var user = new ChatUser(userId, displayName, displayName, "#FF0000", isOwner, isMod);
                 results.Add(new ChatMessage(msgId, msgText, user, _channel ?? new ChatChannel(liveChatId, "YouTube")));
             }

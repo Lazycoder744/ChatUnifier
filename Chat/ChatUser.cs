@@ -27,11 +27,9 @@ namespace ChatUnifier.Chat
             bool isTurbo        = false,
             bool isVip          = false)
         {
-            Id            = id;
-            UserName      = userName;
-
-            // Fix Failed: Attempt to give username, not working...
-            DisplayName   = string.IsNullOrWhiteSpace(displayName) ? userName : displayName;
+            Id            = string.IsNullOrWhiteSpace(id) ? System.Guid.NewGuid().ToString() : id;
+            UserName      = string.IsNullOrWhiteSpace(userName) ? "UnknownUser" : userName;
+            DisplayName   = string.IsNullOrWhiteSpace(displayName) ? UserName : displayName;
 
             Color         = color;
             IsBroadcaster = isBroadcaster;
@@ -39,6 +37,8 @@ namespace ChatUnifier.Chat
             IsSubscriber  = isSubscriber;
             IsTurbo       = isTurbo;
             IsVip         = isVip;
+
+            PaintedName   = DisplayName;
         }
     }
 }

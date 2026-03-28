@@ -5,15 +5,15 @@ namespace ChatUnifier.Chat
     public class ChatMessage : IChatMessage
     {
         public string        Id              { get; }
+        public bool          IsSystemMessage { get; }
+        public bool          IsActionMessage { get; }
+        public bool          IsHighlighted   { get; }
+        public bool          IsGiganticEmote { get; }
+        public bool          IsPing          { get; }
         public string        Message         { get; }
         public IChatUser     Sender          { get; }
         public IChatChannel  Channel         { get; }
         public IChatEmote[]  Emotes          { get; }
-        public bool          IsSystemMessage  { get; }
-        public bool          IsActionMessage  { get; }
-        public bool          IsHighlighted    { get; }
-        public bool          IsGiganticEmote  { get; }
-        public bool          IsPing           { get; }
 
         public ChatMessage(
             string      id,
@@ -26,11 +26,13 @@ namespace ChatUnifier.Chat
             bool isGiganticEmote = false,
             bool isPing          = false)
         {
-            Id              = id;
-            Message         = message;
+            Id              = string.IsNullOrWhiteSpace(id) ? System.Guid.NewGuid().ToString() : id;
+            Message         = message ?? string.Empty;
             Sender          = sender;
             Channel         = channel;
+
             Emotes          = new IChatEmote[0];
+
             IsSystemMessage = isSystemMessage;
             IsActionMessage = isActionMessage;
             IsHighlighted   = isHighlighted;
